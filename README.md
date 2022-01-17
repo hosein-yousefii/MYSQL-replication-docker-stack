@@ -6,7 +6,7 @@ MYSQL automated master-master, master-slave docker compose replication
 ![LinkedIn](https://shields.io/badge/style-hoseinyousefii-black?logo=linkedin&label=LinkedIn&link=https://www.linkedin.com/in/hoseinyousefi)
 
 
-Implementing a master-master or master-slave mysql replication is always a challenge. I Automated this process using docker containers.
+Implementing a master-master or master-slave mysql replication is always a challenge. I Automated this process by using docker containers.
 
 ## What is MYSQL?
 
@@ -22,7 +22,7 @@ MYSQL master-master replication allows data to be copied from either server to t
 
 # Get started with master-slave:
 
-There are several variables which is your replication configuration, and all of them have a default value, so if you don't specify any variable it will work correctly but, it would be a good idea to chnage some of them for instance, your root password or replication user and password. To do that you can export specified below variables:
+There are several variables which is your replication configuration, and all of them have a default value, so if you don't specify any variable it will work correctly but, it would be a good idea to chnage some of them, for instance your root password or replication user and password. To do that you can export specified below variables:
 
 (For test environment it's not necessary to set any variables, it works with default values.)
 
