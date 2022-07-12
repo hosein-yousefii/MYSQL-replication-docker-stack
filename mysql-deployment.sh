@@ -30,14 +30,14 @@ master-slave() {
 	export FIRST_HOST=${MYSQL_FIRST_HOST:-'db-master'}
 	export SECOND_HOST=${MYSQL_SECOND_HOST:-'db-slave'}
 	
-	export IP_ADDR=${DOCKER0_IP:-$(ip a show dev docker0 |grep inet|awk '{print $2}'|awk -F\/ '{print $1}')}
+	export IP_ADDR=${DOCKER0_IP:-$(ip a show dev docker0 |grep inet|awk '{print $2}'|awk -F\/ '{print $1}'|grep -v ::)}
 
 	docker-compose -f docker-compose-mysql.yaml up -d
 
 	echo
 	echo waiting 30s for containers to be up and running...
 	echo Implementing mysql master slave replication...
-	sleep 30
+	sleep 60
 	echo
 
 	# Create user on master database.
@@ -93,14 +93,14 @@ master-master() {
         export FIRST_HOST=${MYSQL_FIRST_HOST:-'db-master1'}
         export SECOND_HOST=${MYSQL_SECOND_HOST:-'db-master2'}
 
-        export IP_ADDR=${DOCKER0_IP:-$(ip a show dev docker0 |grep inet|awk '{print $2}'|awk -F\/ '{print $1}')}
+        export IP_ADDR=${DOCKER0_IP:-$(ip a show dev docker0 |grep inet|awk '{print $2}'|awk -F\/ '{print $1}'|grep -v ::)}
 
         docker-compose -f docker-compose-mysql.yaml up -d
 
         echo
         echo waiting 30s for containers to be up and running...
 	echo Implementing mysql master master replication...
-        sleep 30
+        sleep 60
         echo
 
         # Create user on master database.
